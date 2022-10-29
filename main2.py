@@ -2,6 +2,14 @@ from PyQt5.QtCore import Qt, QTime, QTimer
 from PyQt5.QtWidgets import QWidget, QLabel, QPushButton, QVBoxLayout, QHBoxLayout, QLineEdit
 from instr import *
 from PyQt5.QtGui import QFont
+from main3 import *
+
+class Experment():
+    def __init__(self, age, test1, test2, test3):
+        self.age = int(age)
+        self.test1 = int(test1)
+        self.test2 = int(test2)
+        self.test3 = int(test3)
 
 class Win2(QWidget):
     def __init__(self):
@@ -81,7 +89,13 @@ class Win2(QWidget):
         self.btn_test1.clicked.connect( self.start_test1 )
         self.btn_test2.clicked.connect( self.start_test2 )
         self.btn_test3.clicked.connect( self.start_test3 ) 
+        self.btn_next.clicked.connect( self.next_page )
     
+    def next_page(self):
+        self.hide()
+        self.exp = Experment(self.le_age.text(), self.le_test1.text(), self.le_test2.text(), self.le_test3.text())
+        self.win3 = Win3(self.exp)
+
     def start_test1(self):
         self.time = QTime(0, 0, 15)
         self.timer = QTimer()

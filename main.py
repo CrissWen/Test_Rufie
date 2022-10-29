@@ -1,5 +1,6 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QVBoxLayout
+from PyQt5.QtGui import QFont
 from instr import *
 from main2 import *
 
@@ -18,7 +19,11 @@ class Win1(QWidget):
     
     def initUI(self):
         self.lb_hello = QLabel( txt_hello )
+        self.lb_hello.setFont( QFont("Times", 13, QFont.Bold) )
+
         self.lb_instruction = QLabel( txt_instruction )
+        self.lb_instruction.setFont( QFont("Times", 13, QFont.Bold) )
+
         self.btn_next = QPushButton( txt_next )
 
         self.vline = QVBoxLayout()
